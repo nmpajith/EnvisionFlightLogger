@@ -1,9 +1,12 @@
-﻿using EnvisionFlightLogger.Enums;
+﻿using EnvisionFlightLogger.DataAccess.Entities;
+using EnvisionFlightLogger.Enums;
 using EnvisionFlightLogger.Models;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +33,20 @@ namespace EnvisionFlightLogger.ViewModels
                     _aircraftViewDisplayMode != EAircraftViewDisplayMode.Add;
                 IsDeleteMode = _aircraftViewDisplayMode == EAircraftViewDisplayMode.Delete;
             }
+        }
+
+        private string _validationMessage;
+        public string ValidationMessage
+        {
+            get { return _validationMessage; }
+            set { SetProperty(ref _validationMessage, value); }
+        }
+
+        private bool _hasValidationErrors;
+        public bool HasValidationErrors
+        {
+            get { return _hasValidationErrors; }
+            set { SetProperty(ref _hasValidationErrors, value); }
         }
 
         private bool _isDeleteMode;
@@ -136,6 +153,18 @@ namespace EnvisionFlightLogger.ViewModels
             await TryReadPhotoAsync(options);
         }
 
+        private bool ValidateAirCraft(Aircraft aircraft)
+        {
+            var validator = new AirCraftValidator();
+            var result = validator.Validate(aircraft);
+
+            if (!result.IsValid)
+            {
+                MessagingCenter.Send(this, "ValidationFailed", result.Errors.First().ErrorMessage);
+                return false;
+            }
+            return true;
+        }
 
         private async Task ButtonClickedAsync()
         {
@@ -143,9 +172,13 @@ namespace EnvisionFlightLogger.ViewModels
             switch (AircraftViewDisplayMode)
             {
                 case EAircraftViewDisplayMode.Add:
+                    if (!ValidateAirCraft(Aircraft))
+                        return;
                     MessagingCenter.Send(this, "AddAircraft", Aircraft);
                     break;
                 case EAircraftViewDisplayMode.Edit:
+                    if (!ValidateAirCraft(Aircraft))
+                        return;
                     MessagingCenter.Send(this, "EditAircraft", Aircraft);
                     break;
                 case EAircraftViewDisplayMode.Detail:
@@ -154,6 +187,8 @@ namespace EnvisionFlightLogger.ViewModels
                     MessagingCenter.Send(this, "DeleteAircraft", Aircraft);
                     break;
                 default:
+                    if (!ValidateAirCraft(Aircraft))
+                        return;
                     MessagingCenter.Send(this, "AddAircraft", Aircraft);
                     break;
             }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4PXk47+6b4xkZhCREpnzaMASrK8xAk/SqQXUi171VPxs7uUqyk/RNcLBRj2R8kJVs1CCQlCBtHAoBVznNqIHVw==",
+  "dgSpecHash": "O+QZirJnaafJkpt22WxiYv5Mj/8mnZvXdVvVQ52JGP2r36DpFVn/cGfWDaJs7LWTzMRnHVdVaSXtgX1ThQVnxA==",
   "success": true,
   "projectFilePath": "C:\\XamarinApps\\EnvisionFlightLogger\\EnvisionFlightLogger\\EnvisionFlightLogger\\EnvisionFlightLogger.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ajith.peter.RUSSELLADAMS\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\ajith.peter.RUSSELLADAMS\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\ajith.peter.RUSSELLADAMS\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\ajith.peter.RUSSELLADAMS\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",

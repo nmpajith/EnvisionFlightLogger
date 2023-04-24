@@ -20,6 +20,7 @@
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Label Text="Are you sure you want to delete thiis entry?" IsVisible="{Binding IsDeleteMode}" TextColor="White" FontSize="Medium"/>
+            <Label Text="{Binding ValidationMessage}" IsVisible="{Binding HasValidationErrors}" TextColor="White" FontSize="Medium"/>
             <Grid BindingContext="{Binding}">
                 <Grid.RowDefinitions >
                     <RowDefinition Height="Auto"/>

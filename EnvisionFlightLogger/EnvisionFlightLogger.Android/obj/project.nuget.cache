@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "TcAcVJu7xQHNkcdnoglfnC4l9wn970vnrfJ7vDIHwvwbDX4aMy/R3+F7YHGh3Y1c+OtjojrBCvdM4Zal8CMljQ==",
+  "dgSpecHash": "ByFdnQXGNJMuDFiBgMV6aUdQ+eoOLVzN1vsEtxaDEDMWNTUNhnidNAxCJYyOi0jdpIsyKjMJgzPG+bhtkaTr2A==",
   "success": true,
   "projectFilePath": "C:\\XamarinApps\\EnvisionFlightLogger\\EnvisionFlightLogger\\EnvisionFlightLogger.Android\\EnvisionFlightLogger.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ajith.peter.RUSSELLADAMS\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\ajith.peter.RUSSELLADAMS\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
     "C:\\Users\\ajith.peter.RUSSELLADAMS\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
     "C:\\Users\\ajith.peter.RUSSELLADAMS\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",

@@ -5,6 +5,7 @@ public class MonoPackageManager_Resources {
 		"EnvisionFlightLogger.Android.dll",
 		"EnvisionFlightLogger.DataAccess.dll",
 		"EnvisionFlightLogger.dll",
+		"FluentValidation.dll",
 		"FormsViewGroup.dll",
 		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
