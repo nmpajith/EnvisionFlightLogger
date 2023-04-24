@@ -1,0 +1,12 @@
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\bin\Debug\net6.0\EnvisionFlightLogger.DataAccess.deps.json
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\bin\Debug\net6.0\EnvisionFlightLogger.DataAccess.dll
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\bin\Debug\net6.0\EnvisionFlightLogger.DataAccess.pdb
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\EnvisionFlightLogger.DataAccess.csproj.AssemblyReference.cache
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\EnvisionFlightLogger.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\EnvisionFlightLogger.DataAccess.AssemblyInfoInputs.cache
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\EnvisionFlightLogger.DataAccess.AssemblyInfo.cs
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\EnvisionFlightLogger.DataAccess.csproj.CoreCompileInputs.cache
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\EnvisionFlightLogger.DataAccess.dll
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\refint\EnvisionFlightLogger.DataAccess.dll
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\EnvisionFlightLogger.DataAccess.pdb
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\obj\Debug\net6.0\ref\EnvisionFlightLogger.DataAccess.dll

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModels="clr-namespace:EnvisionFlightLogger.ViewModels;assembly=EnvisionFlightLogger"
+             xmlns:Converters="clr-namespace:EnvisionFlightLogger.Converters;assembly=EnvisionFlightLogger"
+             x:Class="EnvisionFlightLogger.Views.AddDetailEditDeleteAircraftPage"
+             BackgroundImageSource="BackGround.png">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ByteArrayToImageSourceConverter x:Key="ByteArrayToImageSourceConverter" />
+            <Converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:AddDetailEditDeleteAircraftViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Are you sure you want to delete thiis entry?" IsVisible="{Binding IsDeleteMode}" TextColor="White" FontSize="Medium"/>
+            <Grid BindingContext="{Binding}">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Make: " IsVisible="{Binding IsTextNameVisible}"/>
+                <Entry Grid.Row="1" Placeholder="Make" Text="{Binding Aircraft.Make}" IsReadOnly="{Binding IsNonEditableView}"/>
+                <Label Grid.Row="2" Text="Model: " IsVisible="{Binding IsTextNameVisible}" />
+                <Entry Grid.Row="3" Placeholder="Model" Text="{Binding Aircraft.Model}" IsReadOnly="{Binding IsNonEditableView}"/>
+                <Label Grid.Row="4" Text="Registration: " IsVisible="{Binding IsTextNameVisible}"/>
+                <Entry Grid.Row="5" Placeholder="Registration" Text="{Binding Aircraft.Registration}" IsReadOnly="{Binding IsNonEditableView}"/>
+                <Label Grid.Row="6" Text="Location: " IsVisible="{Binding IsTextNameVisible}"/>
+                <Entry Grid.Row="7" Placeholder="Location" Text="{Binding Aircraft.Location}" IsReadOnly="{Binding IsNonEditableView}"/>
+                <StackLayout Grid.Row="8" Orientation="Horizontal" BindingContext="{Binding}">
+                    <DatePicker MinimumDate="01/01/2010" MaximumDate="12/31/2030" Date="{Binding Date}" />
+                    <TimePicker Time="{Binding Time}" Format="T"/>
+                </StackLayout>
+                <StackLayout Grid.Row="9" Orientation="Horizontal" IsVisible="{Binding IsNonEditableView, Converter={StaticResource InverseBooleanConverter}}">
+                    <Label Text="Add Photo" VerticalTextAlignment="Center"/>
+                    <Button Text="Browse" Command="{Binding BrowseCommand}"  />
+                </StackLayout>
+
+                <Image Grid.Row="10" Source="{Binding Aircraft.Photo, Converter={StaticResource ByteArrayToImageSourceConverter}}" />
+                <Button Grid.Row="11" Text="{Binding ButtonText}" Command="{Binding ButtonCommand}" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

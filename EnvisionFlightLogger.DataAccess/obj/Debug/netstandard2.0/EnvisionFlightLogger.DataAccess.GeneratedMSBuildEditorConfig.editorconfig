@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = EnvisionFlightLogger.DataAccess
+build_property.ProjectDir = C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger.DataAccess\
