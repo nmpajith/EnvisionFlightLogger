@@ -18,10 +18,10 @@ namespace EnvisionFlightLogger.Views
         public AddDetailEditDeleteAircraftPage()
         {
             InitializeComponent();
-            MessagingCenter.Subscribe<AddDetailEditDeleteAircraftViewModel, string>(this, "ValidationFailed", OnValidationFailed);
+            MessagingCenter.Subscribe<EditAircraftViewModel, string>(this, "ValidationFailed", OnValidationFailed);
         }
 
-        private async void OnValidationFailed(AddDetailEditDeleteAircraftViewModel arg1, string message)
+        private async void OnValidationFailed(EditAircraftViewModel arg1, string message)
         {
             await DisplayAlert("Validation Error", message, "OK");
         }

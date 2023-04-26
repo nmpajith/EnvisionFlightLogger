@@ -72,3 +72,4 @@ C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger\EnvisionFlightLogger.iO
 C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger\EnvisionFlightLogger.iOS\obj\iPhone\Debug\EnvisionFlightLogger.iOS.exe
 C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger\EnvisionFlightLogger.iOS\obj\iPhone\Debug\EnvisionFlightLogger.iOS.pdb
 C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger\EnvisionFlightLogger.iOS\bin\iPhone\Debug\Xamarin.CommunityToolkit.dll
+C:\XamarinApps\EnvisionFlightLogger\EnvisionFlightLogger\EnvisionFlightLogger.iOS\bin\iPhone\Debug\FluentValidation.dll

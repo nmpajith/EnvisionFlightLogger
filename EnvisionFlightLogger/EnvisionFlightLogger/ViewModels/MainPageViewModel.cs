@@ -1,6 +1,5 @@
 ﻿using EnvisionFlightLogger.DataAccess.Entities;
 using EnvisionFlightLogger.DataAccess.Services;
-using EnvisionFlightLogger.Enums;
 using EnvisionFlightLogger.Models;
 using EnvisionFlightLogger.Views;
 using System;
@@ -56,9 +55,9 @@ namespace EnvisionFlightLogger.ViewModels
             FilterAircraftCommand = new Command(FilterAircraft);
             ContentPageLoadedCommand = new Command(ContentPageLoaded);
             _aircraftService = DependencyService.Resolve<IAircraftService>();
-            MessagingCenter.Subscribe<AddDetailEditDeleteAircraftViewModel, Aircraft>(this, "AddAircraft", (page, aircraft) => AddAircraft(aircraft));
-            MessagingCenter.Subscribe<AddDetailEditDeleteAircraftViewModel, Aircraft>(this, "EditAircraft", (page, aircraft) => UpdateAircraft(aircraft));
-            MessagingCenter.Subscribe<AddDetailEditDeleteAircraftViewModel, Aircraft>(this, "DeleteAircraft", (page, aircraft) => DeleteAircraft(aircraft));
+            MessagingCenter.Subscribe<AddAircraftViewModel, Aircraft>(this, "AddAircraft", (page, aircraft) => AddAircraft(aircraft));
+            MessagingCenter.Subscribe<EditAircraftViewModel, Aircraft>(this, "EditAircraft", (page, aircraft) => UpdateAircraft(aircraft));
+            MessagingCenter.Subscribe<DeleteAircraftViewModel, Aircraft>(this, "DeleteAircraft", (page, aircraft) => DeleteAircraft(aircraft));
         }
 
         private async void ContentPageLoaded()
@@ -93,7 +92,7 @@ namespace EnvisionFlightLogger.ViewModels
 
         private void ShowDetails(Aircraft aircraft)
         {
-            var detailAircraftViewModel = new AddDetailEditDeleteAircraftViewModel(aircraft, EAircraftViewDisplayMode.Detail);
+            var detailAircraftViewModel = new DetailAircraftViewModel(aircraft);
             var detailAircraftPage = new AddDetailEditDeleteAircraftPage();
             detailAircraftPage.BindingContext = detailAircraftViewModel;
             NavigationDispatcher.Instance.Navigation.PushAsync(detailAircraftPage);
@@ -104,7 +103,7 @@ namespace EnvisionFlightLogger.ViewModels
             var aircraft = AircraftList.Where(ac=>ac.Id==id).First();
             if (aircraft != null)
             {
-                var editAircraftViewModel = new AddDetailEditDeleteAircraftViewModel(aircraft, EAircraftViewDisplayMode.Edit);
+                var editAircraftViewModel = new EditAircraftViewModel(aircraft);
                 var editAircraftPage = new AddDetailEditDeleteAircraftPage();
                 editAircraftPage.BindingContext = editAircraftViewModel;
                 NavigationDispatcher.Instance.Navigation.PushAsync(editAircraftPage);
@@ -126,7 +125,7 @@ namespace EnvisionFlightLogger.ViewModels
             var aircraft = AircraftList.Where(ac => ac.Id == id).First();
             if (aircraft != null)
             {
-                var deleteAircraftViewModel = new AddDetailEditDeleteAircraftViewModel(aircraft, EAircraftViewDisplayMode.Delete);
+                var deleteAircraftViewModel = new DeleteAircraftViewModel(aircraft);
                 var deleteAircraftPage = new AddDetailEditDeleteAircraftPage();
                 deleteAircraftPage.BindingContext = deleteAircraftViewModel;
                 NavigationDispatcher.Instance.Navigation.PushAsync(deleteAircraftPage);
