@@ -98,6 +98,8 @@ namespace EnvisionFlightLogger.ViewModels
         protected virtual async Task ButtonClickedAsync()
         {
             Aircraft.DateAndTime = Date.Add(Time);
+            if (!ValidateAirCraft(Aircraft))
+                return;
             MessagingCenter.Send(this, "AddAircraft", Aircraft);
             await NavigationDispatcher.Instance.Navigation.PopAsync();
         }
@@ -132,7 +134,8 @@ namespace EnvisionFlightLogger.ViewModels
 
             if (!result.IsValid)
             {
-                MessagingCenter.Send(this, "ValidationFailed", result.Errors.First().ErrorMessage);
+                HasValidationErrors = true;
+                ValidationMessage = result.Errors.First().ToString();
                 return false;
             }
             return true;

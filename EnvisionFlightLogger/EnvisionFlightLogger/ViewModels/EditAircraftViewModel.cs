@@ -33,6 +33,8 @@ namespace EnvisionFlightLogger.ViewModels
         protected override async Task ButtonClickedAsync()
         {
             Aircraft.DateAndTime = Date.Add(Time);
+            if (!ValidateAirCraft(Aircraft))
+                return;
             MessagingCenter.Send(this, "EditAircraft", Aircraft);
             await NavigationDispatcher.Instance.Navigation.PopAsync();
         }

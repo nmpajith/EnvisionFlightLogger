@@ -14,6 +14,7 @@ namespace EnvisionFlightLogger
         {
             InitializeComponent();
 
+            var appRun = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             DependencyService.RegisterSingleton<DataContext>(
                 new DataContext(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "EnvisionFlightLogger.db3")));
             DependencyService.RegisterSingleton<IUnitOfWork>(new UnitOfWork(DependencyService.Resolve<DataContext>()));
