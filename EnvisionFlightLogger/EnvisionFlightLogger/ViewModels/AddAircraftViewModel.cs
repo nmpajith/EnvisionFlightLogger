@@ -88,11 +88,17 @@ namespace EnvisionFlightLogger.ViewModels
         public AddAircraftViewModel()
         {
             Aircraft = new Aircraft();
+            Aircraft.PropertyChanged += Aircraft_PropertyChanged;
             Date = Aircraft.DateAndTime.Date;
             Time = Aircraft.DateAndTime.Subtract(Date);
             SetButtonText("Save");
             ButtonCommand = new Command(async () => await ButtonClickedAsync());
             BrowseCommand = new Command(async () => await BrowseImageAsync());
+        }
+
+        private void Aircraft_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            HasValidationErrors = false;
         }
 
         protected virtual async Task ButtonClickedAsync()

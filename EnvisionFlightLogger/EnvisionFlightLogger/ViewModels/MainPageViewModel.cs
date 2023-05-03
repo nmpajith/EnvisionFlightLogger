@@ -53,26 +53,25 @@ namespace EnvisionFlightLogger.ViewModels
             DeleteAircraftCommand = new Command<int>((int id) => DeleteAircraft(id));
             ItemTappedCommand = new Command<Aircraft>((Aircraft aircraft) => ShowDetails(aircraft));
             FilterAircraftCommand = new Command(FilterAircraft);
-            ContentPageLoadedCommand = new Command(ContentPageLoaded);
+            //ContentPageLoadedCommand = new Command(ContentPageLoaded);
             _aircraftService = DependencyService.Resolve<IAircraftService>();
             MessagingCenter.Subscribe<AddAircraftViewModel, Aircraft>(this, "AddAircraft", (page, aircraft) => AddAircraft(aircraft));
             MessagingCenter.Subscribe<EditAircraftViewModel, Aircraft>(this, "EditAircraft", (page, aircraft) => UpdateAircraft(aircraft));
             MessagingCenter.Subscribe<DeleteAircraftViewModel, Aircraft>(this, "DeleteAircraft", (page, aircraft) => DeleteAircraft(aircraft));
+            Task.Run(() => ContentPageLoaded());
         }
 
-        private async void ContentPageLoaded()
+        private void ContentPageLoaded()
         {
-            await Task.Run(() => {
-                var allAircraftEntities = _aircraftService.GetAllAircrafts();
-                if (allAircraftEntities != null)
+            var allAircraftEntities = _aircraftService.GetAllAircrafts();
+            if (allAircraftEntities != null)
+            {
+                AircraftList.Clear();
+                foreach (var airCraftEntity in allAircraftEntities)
                 {
-                    AircraftList.Clear();
-                    foreach (var airCraftEntity in allAircraftEntities)
-                    {
-                        AircraftList.Add(new Aircraft(airCraftEntity));
-                    }
+                    AircraftList.Add(new Aircraft(airCraftEntity));
                 }
-            });            
+            }
         }
 
         private void AddAircraft()
